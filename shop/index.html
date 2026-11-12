@@ -110,7 +110,7 @@ function close(){if(d.open)d.close()}
 d.addEventListener('close',function(){if(location.hash)history.replaceState(null,'',location.pathname+location.search)});
 d.addEventListener('click',function(e){if(e.target===d||e.target.closest('.x'))close()});
 document.querySelectorAll('.tile').forEach(function(el){el.addEventListener('click',function(){open(el.dataset.id,true)})});
-function fromHash(){var id=decodeURIComponent(location.hash.slice(1));if(!id)return;
+function fromHash(){var id=decodeURIComponent(location.hash.slice(1));if(!id)return;if(document.getElementById('r'+id))id='r'+id;
 var f=document.getElementById(id);if(f&&f.classList.contains('feat')){window.scrollTo({top:f.getBoundingClientRect().top+scrollY-12})}else{open(id,false)}}
 window.addEventListener('hashchange',fromHash);fromHash();
 var tiles=[].slice.call(document.querySelectorAll('.tile')),q=document.getElementById('q'),more=document.getElementById('more'),
